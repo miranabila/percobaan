@@ -1,0 +1,59 @@
+{
+	"name": "first-network",
+	"version": "1.0.0",
+	"client": {
+		"tlsEnable": true,
+		"adminCredential": {
+			"id": "exploreradmin",
+			"password": "exploreradminpw"
+		},
+		"enableAuthentication": false,
+		"organization": "Coe1Petani",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+	"channels": {
+		"mychannel": {
+			"peers": {
+				"peer0.coe1.dinus.com": {}
+			},
+			"connection": {
+				"timeout": {
+					"peer": {
+						"endorser": "6000",
+						"eventHub": "6000",
+						"eventReg": "6000"
+					}
+				}
+			}
+		}
+	},
+	"organizations": {
+		"Coe1Petani": {
+			"mspid": "Coe1Petani",
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/peerOrganizations/coe1.dinus.com/users/Admin@coe1.dinus.com/msp/keystore/b1066e84cfa989a8a6924921f50cb4bd71cd3542fbccf7d3aa8a915600652c71_sk"
+			},
+			"peers": [
+				"peer0.coe1.dinus.com"
+			],
+			"signedCert": {
+				"path": "/tmp/crypto/peerOrganizations/coe1.dinus.com/users/Admin@coe1.dinus.com/msp/signcerts/cert.pem"
+			}
+		}
+	},
+	"peers": {
+		"peer0.coe1.dinus.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/coe1.dinus.com/peers/peer0.coe1.dinus.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.coe1.dinus.com:7051"
+		}
+	}
+}
