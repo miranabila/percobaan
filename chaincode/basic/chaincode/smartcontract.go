@@ -19,16 +19,16 @@ type Asset struct {
 	KualitasBawang string `json:"Kualitas Bawang"`
 	Kabupaten      string `json:"Kabupaten"`
 	Nama           string `json:"Nama"`
-	DataPanen      int    `json:"Data Panen (kg)"`
+	DataPanen      int    `json:"Data Panen"`
 	Status		   string `json:"Status"`
 }
 
 // InitLedger adds a base set of assets to the ledger
 func (s *SmartContract) InitLedger(ctx contractapi.TransactionContextInterface) error {
 	assets := []Asset{
-		{ID: "asset1", JenisBawang: "bawang merah A", KualitasBawang: "baik", Kabupaten: "Temanggung", Nama: "Joko", DataPanen: 3000, Status: "Petani"},
-		{ID: "asset2", JenisBawang: "bawang merah B", KualitasBawang: "sangat baik", Kabupaten: "Brebes", Nama: "Bambang", DataPanen: 2200, Status: "Petani"},
-		{ID: "asset3", JenisBawang: "bawang merah C", KualitasBawang: "buruk", Kabupaten: "Wonosobo", Nama: "Suyono", DataPanen: 3500, Status: "Petani"},
+		{ID: "1", JenisBawang: "bawang merah", KualitasBawang: "baik", Kabupaten: "Temanggung", Nama: "Joko", DataPanen: 3000, Status: "Petani"},
+		{ID: "2", JenisBawang: "bawang merah", KualitasBawang: "sangat baik", Kabupaten: "Brebes", Nama: "Bambang", DataPanen: 2200, Status: "Petani"},
+		{ID: "3", JenisBawang: "bawang merah", KualitasBawang: "buruk", Kabupaten: "Wonosobo", Nama: "Suyono", DataPanen: 3500, Status: "Petani"},
 	}
 
 	for _, asset := range assets {
