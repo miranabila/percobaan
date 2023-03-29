@@ -15,11 +15,11 @@ type SmartContract struct {
 // Asset describes basic details of what makes up a simple asset
 type Asset struct {
 	ID             string `json:"ID"`
-	JenisBawang    string `json:"Jenis Bawang"`
-	KualitasBawang string `json:"Kualitas Bawang"`
+	JenisBawang    string `json:"Jenis_Bawang"`
+	KualitasBawang string `json:"Kualitas_Bawang"`
 	Kabupaten      string `json:"Kabupaten"`
 	Nama           string `json:"Nama"`
-	DataPanen      int    `json:"Data Panen (kg)"`
+	DataPanen      int    `json:"Data_Panen"`
 	Status		   string `json:"Status"`
 }
 
