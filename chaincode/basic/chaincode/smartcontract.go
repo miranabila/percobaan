@@ -15,12 +15,12 @@ type SmartContract struct {
 // Asset describes basic details of what makes up a simple asset
 type Asset struct {
 	ID             string `json:"ID"`
-	JenisBawang    string `json:"Jenis Bawang"`
-	KualitasBawang string `json:"Kualitas Bawang"`
+	JenisBawang    string `json:"Jenis_Bawang"`
+	KualitasBawang string `json:"Kualitas_Bawang"`
 	Kabupaten      string `json:"Kabupaten"`
 	Nama           string `json:"Nama"`
-	DataPanen      int    `json:"Data Panen"`
-	Status		   string `json:"Status"`
+	DataPanen      int    `json:"Data_Panen"`
+	Status	       string `json:"Status"`
 }
 
 // InitLedger adds a base set of assets to the ledger
@@ -62,8 +62,8 @@ func (s *SmartContract) CreateAsset(ctx contractapi.TransactionContextInterface,
 		KualitasBawang:	kualitasBawang,
 		Kabupaten:      kabupaten,
 		Nama:           nama,
-		DataPanen: 		dataPanen,
-		Status:			status,
+		DataPanen: 	dataPanen,
+		Status:		status,
 	}
 	assetJSON, err := json.Marshal(asset)
 	if err != nil {
@@ -109,8 +109,8 @@ func (s *SmartContract) UpdateAsset(ctx contractapi.TransactionContextInterface,
 		KualitasBawang:	kualitasBawang,
 		Kabupaten:      kabupaten,
 		Nama:           nama,
-		DataPanen: 		dataPanen,
-		Status:			status,
+		DataPanen: 	dataPanen,
+		Status:		status,
 	}
 	assetJSON, err := json.Marshal(asset)
 	if err != nil {
