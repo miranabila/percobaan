@@ -20,15 +20,19 @@ type Asset struct {
 	Kabupaten      string `json:"Kabupaten"`
 	Nama           string `json:"Nama"`
 	DataPanen      int    `json:"Data_Panen"`
+<<<<<<< HEAD
 	Status		   string `json:"Status"`
+=======
+	Status	       string `json:"Status"`
+>>>>>>> db26b03adbaf76b7c31dcafc0daf0a2d7065aa4a
 }
 
 // InitLedger adds a base set of assets to the ledger
 func (s *SmartContract) InitLedger(ctx contractapi.TransactionContextInterface) error {
 	assets := []Asset{
-		{ID: "asset1", JenisBawang: "bawang merah A", KualitasBawang: "baik", Kabupaten: "Temanggung", Nama: "Joko", DataPanen: 3000, Status: "Petani"},
-		{ID: "asset2", JenisBawang: "bawang merah B", KualitasBawang: "sangat baik", Kabupaten: "Brebes", Nama: "Bambang", DataPanen: 2200, Status: "Petani"},
-		{ID: "asset3", JenisBawang: "bawang merah C", KualitasBawang: "buruk", Kabupaten: "Wonosobo", Nama: "Suyono", DataPanen: 3500, Status: "Petani"},
+		{ID: "1", JenisBawang: "bawang merah", KualitasBawang: "baik", Kabupaten: "Temanggung", Nama: "Joko", DataPanen: 3000, Status: "Petani"},
+		{ID: "2", JenisBawang: "bawang merah", KualitasBawang: "sangat baik", Kabupaten: "Brebes", Nama: "Bambang", DataPanen: 2200, Status: "Petani"},
+		{ID: "3", JenisBawang: "bawang merah", KualitasBawang: "buruk", Kabupaten: "Wonosobo", Nama: "Suyono", DataPanen: 3500, Status: "Petani"},
 	}
 
 	for _, asset := range assets {
@@ -62,8 +66,8 @@ func (s *SmartContract) CreateAsset(ctx contractapi.TransactionContextInterface,
 		KualitasBawang:	kualitasBawang,
 		Kabupaten:      kabupaten,
 		Nama:           nama,
-		DataPanen: 		dataPanen,
-		Status:			status,
+		DataPanen: 	dataPanen,
+		Status:		status,
 	}
 	assetJSON, err := json.Marshal(asset)
 	if err != nil {
@@ -109,8 +113,8 @@ func (s *SmartContract) UpdateAsset(ctx contractapi.TransactionContextInterface,
 		KualitasBawang:	kualitasBawang,
 		Kabupaten:      kabupaten,
 		Nama:           nama,
-		DataPanen: 		dataPanen,
-		Status:			status,
+		DataPanen: 	dataPanen,
+		Status:		status,
 	}
 	assetJSON, err := json.Marshal(asset)
 	if err != nil {
