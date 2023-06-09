@@ -20,19 +20,16 @@ type Asset struct {
 	Kabupaten      string `json:"Kabupaten"`
 	Nama           string `json:"Nama"`
 	DataPanen      int    `json:"Data_Panen"`
-<<<<<<< HEAD
-	Status		   string `json:"Status"`
-=======
-	Status	       string `json:"Status"`
->>>>>>> db26b03adbaf76b7c31dcafc0daf0a2d7065aa4a
+	Status         string `json:"Status"`
+	Tanggal        string `json:"Tanggal"`
 }
 
 // InitLedger adds a base set of assets to the ledger
 func (s *SmartContract) InitLedger(ctx contractapi.TransactionContextInterface) error {
 	assets := []Asset{
-		{ID: "1", JenisBawang: "bawang merah", KualitasBawang: "baik", Kabupaten: "Temanggung", Nama: "Joko", DataPanen: 3000, Status: "Petani"},
-		{ID: "2", JenisBawang: "bawang merah", KualitasBawang: "sangat baik", Kabupaten: "Brebes", Nama: "Bambang", DataPanen: 2200, Status: "Petani"},
-		{ID: "3", JenisBawang: "bawang merah", KualitasBawang: "buruk", Kabupaten: "Wonosobo", Nama: "Suyono", DataPanen: 3500, Status: "Petani"},
+		{ID: "1", JenisBawang: "bawang merah", KualitasBawang: "baik", Kabupaten: "Temanggung", Nama: "Joko", DataPanen: 3000, Status: "Petani", Tanggal: "09-01-2023"},
+		{ID: "2", JenisBawang: "bawang merah", KualitasBawang: "sangat baik", Kabupaten: "Brebes", Nama: "Bambang", DataPanen: 2200, Status: "Petani", Tanggal: "09-01-2023"},
+		{ID: "3", JenisBawang: "bawang merah", KualitasBawang: "buruk", Kabupaten: "Wonosobo", Nama: "Suyono", DataPanen: 3500, Status: "Petani", Tanggal: "10-01-2023"},
 	}
 
 	for _, asset := range assets {
@@ -51,7 +48,7 @@ func (s *SmartContract) InitLedger(ctx contractapi.TransactionContextInterface) 
 }
 
 // CreateAsset issues a new asset to the world state with given details.
-func (s *SmartContract) CreateAsset(ctx contractapi.TransactionContextInterface, id string, jenisBawang string, kualitasBawang string, kabupaten string, nama string, dataPanen int, status string) error {
+func (s *SmartContract) CreateAsset(ctx contractapi.TransactionContextInterface, id string, jenisBawang string, kualitasBawang string, kabupaten string, nama string, dataPanen int, status string, tanggal string) error {
 	exists, err := s.AssetExists(ctx, id)
 	if err != nil {
 		return err
@@ -66,8 +63,9 @@ func (s *SmartContract) CreateAsset(ctx contractapi.TransactionContextInterface,
 		KualitasBawang:	kualitasBawang,
 		Kabupaten:      kabupaten,
 		Nama:           nama,
-		DataPanen: 	dataPanen,
-		Status:		status,
+		DataPanen: 		dataPanen,
+		Status:			status,
+		Tanggal:		tanggal,
 	}
 	assetJSON, err := json.Marshal(asset)
 	if err != nil {
@@ -97,7 +95,7 @@ func (s *SmartContract) ReadAsset(ctx contractapi.TransactionContextInterface, i
 }
 
 // UpdateAsset updates an existing asset in the world state with provided parameters.
-func (s *SmartContract) UpdateAsset(ctx contractapi.TransactionContextInterface, id string, jenisBawang string, kualitasBawang string, kabupaten string, nama string, dataPanen int, status string) error {
+func (s *SmartContract) UpdateAsset(ctx contractapi.TransactionContextInterface, id string, jenisBawang string, kualitasBawang string, kabupaten string, nama string, dataPanen int, status string, tanggal string) error {
 	exists, err := s.AssetExists(ctx, id)
 	if err != nil {
 		return err
@@ -113,8 +111,9 @@ func (s *SmartContract) UpdateAsset(ctx contractapi.TransactionContextInterface,
 		KualitasBawang:	kualitasBawang,
 		Kabupaten:      kabupaten,
 		Nama:           nama,
-		DataPanen: 	dataPanen,
-		Status:		status,
+		DataPanen: 		dataPanen,
+		Status:			status,
+		Tanggal:		tanggal,
 	}
 	assetJSON, err := json.Marshal(asset)
 	if err != nil {
